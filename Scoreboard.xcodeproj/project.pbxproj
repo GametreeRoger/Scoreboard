@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3A5E55326B2404800AB9B9E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A5E55226B2404800AB9B9E /* SettingsTableViewController.swift */; };
+		D3C2934726B2484E003B23DC /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C2934626B2484E003B23DC /* Settings.swift */; };
 		D3C95C0426B1038B001662B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C95C0326B1038B001662B6 /* AppDelegate.swift */; };
 		D3C95C0626B1038B001662B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C95C0526B1038B001662B6 /* SceneDelegate.swift */; };
 		D3C95C0826B1038B001662B6 /* ScoreboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C95C0726B1038B001662B6 /* ScoreboardViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3A5E55226B2404800AB9B9E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		D3C2934626B2484E003B23DC /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		D3C95C0026B1038B001662B6 /* Scoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scoreboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C95C0326B1038B001662B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3C95C0526B1038B001662B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				D3C95C1826B13227001662B6 /* Score.swift */,
+				D3C2934626B2484E003B23DC /* Settings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -82,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				D3C95C0726B1038B001662B6 /* ScoreboardViewController.swift */,
+				D3A5E55226B2404800AB9B9E /* SettingsTableViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -157,7 +163,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3C2934726B2484E003B23DC /* Settings.swift in Sources */,
 				D3C95C0826B1038B001662B6 /* ScoreboardViewController.swift in Sources */,
+				D3A5E55326B2404800AB9B9E /* SettingsTableViewController.swift in Sources */,
 				D3C95C0426B1038B001662B6 /* AppDelegate.swift in Sources */,
 				D3C95C1926B13227001662B6 /* Score.swift in Sources */,
 				D3C95C0626B1038B001662B6 /* SceneDelegate.swift in Sources */,

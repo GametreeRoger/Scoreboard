@@ -11,6 +11,8 @@ class ScoreboardViewController: UIViewController {
     let MAX_RECORD = 12
     var score: Score!
     var scoreRecord: [Score] = []
+    var goingForwards: Bool = false
+    var settings: Settings?
     
     @IBOutlet weak var leftScoreButton: UIButton!
     @IBOutlet weak var rightScoreButton: UIButton!
@@ -24,11 +26,20 @@ class ScoreboardViewController: UIViewController {
     @IBOutlet weak var leftServe: UILabel!
     @IBOutlet weak var rightServe: UILabel!
     
+    @IBOutlet weak var rewindButton: UIButton!
+    @IBOutlet weak var changeSideButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        score = Score(person_A: Person(name: "Peter", game: 0, score: 0), person_B: Person(name: "Hook", game: 0, score: 0), isLeftA: true, isServeA: true, serveCount: 0)
+        score = Score(person_A: Person(name: "Player1", game: 0, score: 0), person_B: Person(name: "Player2", game: 0, score: 0), isLeftA: true, isServeA: true, serveCount: 0)
         
+        if settings == nil {
+            settings = Settings(player1: score.person_A.name, player2: score.person_B.name, theme: .Default)
+        }
+        
+        updateColor()
         recordPush()
         updateView()
     }
@@ -120,6 +131,41 @@ class ScoreboardViewController: UIViewController {
         
         return scoreRecord.last
     }
+    
+    func recordChangeName(nameA: String, nameB: String) {
+        if scoreRecord.count == 0 {
+            return
+        }
+        
+        for index in 0..<scoreRecord.count {
+            scoreRecord[index].changeName(nameA: nameA, nameB: nameB)
+        }
+    }
+    
+    func updateColor() {
+        var textColorName = ""
+        var serveColorName = ""
+        var resetColorName = ""
+        var backgroundColorName = ""
+        if let theme = settings?.theme {
+            textColorName = "\(theme.getString)_TextColor"
+            serveColorName = "\(theme.getString)_ServeColor"
+            resetColorName = "\(theme.getString)_ResetColor"
+            backgroundColorName = "\(theme.getString)_BackgroundColor"
+        }
+        leftScoreButton.setTitleColor(UIColor(named: textColorName), for: .normal)
+        rightScoreButton.setTitleColor(UIColor(named: textColorName), for: .normal)
+        leftNameLabel.textColor = UIColor(named: textColorName)
+        rightNameLabel.textColor = UIColor(named: textColorName)
+        leftGameScoreLabel.textColor = UIColor(named: textColorName)
+        rightGameScoreLabel.textColor = UIColor(named: textColorName)
+        rewindButton.setTitleColor(UIColor(named: textColorName), for: .normal)
+        changeSideButton.setTitleColor(UIColor(named: textColorName), for: .normal)
+        resetButton.setTitleColor(UIColor(named: resetColorName), for: .normal)
+        leftServe.textColor = UIColor(named: serveColorName)
+        rightServe.textColor = UIColor(named: serveColorName)
+        view.backgroundColor = UIColor(named: backgroundColorName)
+    }
 
     @IBAction func addScore(_ sender: UIButton) {
         if sender == leftScoreButton {
@@ -147,5 +193,30 @@ class ScoreboardViewController: UIViewController {
         score.clear()
         recordPush()
         updateView()
+    }
+    @IBSegueAction func showSettings(_ coder: NSCoder) -> SettingsTableViewController? {
+        let controller = SettingsTableViewController(coder: coder)
+        controller?.delegate = self
+        controller?.settings = settings
+        return controller
+    }
+    /*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SettingData" {
+            let destination = segue.destination as! SettingsTableViewController
+            destination.delegate = self
+        }
+    }
+    */
+}
+
+extension ScoreboardViewController: SettingDelegate {
+    func settingData(data: Settings) {
+        settings = data
+        score.person_A.name = settings?.player1 ?? "player1"
+        score.person_B.name = settings?.player2 ?? "player2"
+        recordChangeName(nameA: score.person_A.name, nameB: score.person_B.name)
+        updateView()
+        updateColor()
     }
 }
