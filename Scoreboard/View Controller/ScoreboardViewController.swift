@@ -200,14 +200,6 @@ class ScoreboardViewController: UIViewController {
         controller?.settings = settings
         return controller
     }
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SettingData" {
-            let destination = segue.destination as! SettingsTableViewController
-            destination.delegate = self
-        }
-    }
-    */
 }
 
 extension ScoreboardViewController: SettingDelegate {
