@@ -82,12 +82,10 @@ class SettingsTableViewController: UITableViewController {
     }
 
     @IBAction func player1NameSetting(_ sender: UITextField) {
-        print(sender.text!)
         setName(sender: sender, isPlayer1: true)
     }
     
     @IBAction func player2NameSetting(_ sender: UITextField) {
-        print(sender.text!)
         setName(sender: sender, isPlayer1: false)
     }
 
