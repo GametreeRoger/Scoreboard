@@ -15,9 +15,6 @@ struct Person {
         game = 0
         score = 0
     }
-    mutating func changeName(name: String) {
-        self.name = name
-    }
 }
 
 struct Score {
@@ -35,7 +32,7 @@ struct Score {
         serveCount = 0
     }
     mutating func changeName(nameA: String, nameB: String) {
-        person_A.changeName(name: nameA)
-        person_B.changeName(name: nameB)
+        person_A.name = nameA
+        person_B.name = nameB
     }
 }
