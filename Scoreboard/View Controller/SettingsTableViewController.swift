@@ -19,19 +19,19 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var player1TextField: UITextField!
     @IBOutlet weak var player2TextField: UITextField!
     
+    @IBOutlet var themeCells: [UITableViewCell]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Number of rows: \(tableView.numberOfRows(inSection: 0))")
         updateView()
     }
     
     func updateView() {
         if let themeIndex = settings?.theme.rawValue {
-            selectedRow = themeIndex
-            let indexPath = IndexPath(row: themeIndex, section: 0)
-            if let cell = tableView.cellForRow(at: indexPath) {
+            for cell in themeCells where cell.tag == themeIndex{
                 cell.accessoryType = .checkmark
+                selectedRow = themeIndex
             }
         }
         player1TextField.text = settings?.player1

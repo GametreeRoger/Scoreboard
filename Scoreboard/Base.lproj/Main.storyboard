@@ -197,7 +197,7 @@
                         <sections>
                             <tableViewSection headerTitle="Theme" id="2bC-1M-20R">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DefaultCell" rowHeight="151" id="w0l-6C-Qok">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="151" id="w0l-6C-Qok">
                                         <rect key="frame" x="0.0" y="172.66666603088379" width="844" height="151"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w0l-6C-Qok" id="v9R-Zk-frM">
@@ -219,7 +219,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="151" id="Jo7-D5-84n">
+                                    <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="151" id="Jo7-D5-84n">
                                         <rect key="frame" x="0.0" y="323.66666603088379" width="844" height="151"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jo7-D5-84n" id="t9m-nf-xY8">
@@ -241,11 +241,11 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="151" id="Kxh-mO-DOZ">
+                                    <tableViewCell clipsSubviews="YES" tag="2" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="151" id="Kxh-mO-DOZ">
                                         <rect key="frame" x="0.0" y="474.66666603088379" width="844" height="151"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kxh-mO-DOZ" id="mfo-w2-mhI">
-                                            <rect key="frame" x="0.0" y="0.0" width="844" height="151"/>
+                                            <rect key="frame" x="44" y="0.0" width="756" height="151"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xLs-HB-GPY">
@@ -263,11 +263,11 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="151" id="i5x-zW-CXo">
+                                    <tableViewCell clipsSubviews="YES" tag="3" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="151" id="i5x-zW-CXo">
                                         <rect key="frame" x="0.0" y="625.66666603088379" width="844" height="151"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i5x-zW-CXo" id="D5N-Tl-sgW">
-                                            <rect key="frame" x="0.0" y="0.0" width="844" height="151"/>
+                                            <rect key="frame" x="44" y="0.0" width="756" height="151"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LA7-CG-3Q7">
@@ -285,11 +285,11 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="151" id="kZb-0Y-wzp">
+                                    <tableViewCell clipsSubviews="YES" tag="4" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="151" id="kZb-0Y-wzp">
                                         <rect key="frame" x="0.0" y="776.66666603088379" width="844" height="151"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kZb-0Y-wzp" id="sai-Ol-eB0">
-                                            <rect key="frame" x="0.0" y="0.0" width="844" height="151"/>
+                                            <rect key="frame" x="44" y="0.0" width="756" height="151"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Au5-ZN-Kma">
@@ -319,6 +319,11 @@
                     <connections>
                         <outlet property="player1TextField" destination="XLf-Cp-2LH" id="Yib-dR-CLu"/>
                         <outlet property="player2TextField" destination="ZWR-Hm-AmR" id="S6J-dh-Oec"/>
+                        <outletCollection property="themeCells" destination="w0l-6C-Qok" collectionClass="NSMutableArray" id="KMq-ZR-MXw"/>
+                        <outletCollection property="themeCells" destination="Jo7-D5-84n" collectionClass="NSMutableArray" id="bN3-xm-FCb"/>
+                        <outletCollection property="themeCells" destination="Kxh-mO-DOZ" collectionClass="NSMutableArray" id="x0Z-vd-g1d"/>
+                        <outletCollection property="themeCells" destination="i5x-zW-CXo" collectionClass="NSMutableArray" id="rpD-dv-sr7"/>
+                        <outletCollection property="themeCells" destination="kZb-0Y-wzp" collectionClass="NSMutableArray" id="Wec-CB-8cS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7NL-kH-uMQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
