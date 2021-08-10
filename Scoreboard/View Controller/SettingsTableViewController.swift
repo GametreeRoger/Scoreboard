@@ -13,13 +13,12 @@ protocol SettingDelegate {
 
 class SettingsTableViewController: UITableViewController {
     var selectedRow = 0
-    var settings: Settings?
-    var delegate: SettingDelegate?
+    var settings: Settings
+    var delegate: SettingDelegate
+    let ThemeID = "ThemeID"
     
     @IBOutlet weak var player1TextField: UITextField!
     @IBOutlet weak var player2TextField: UITextField!
-    
-    @IBOutlet var themeCells: [UITableViewCell]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,18 +26,31 @@ class SettingsTableViewController: UITableViewController {
         updateView()
     }
     
+    init?(coder: NSCoder, settings: Settings, delegate: SettingDelegate) {
+        self.settings = settings
+        self.delegate = delegate
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func updateView() {
-        if let themeIndex = settings?.theme.rawValue {
-            for cell in themeCells where cell.tag == themeIndex{
-                cell.accessoryType = .checkmark
-                selectedRow = themeIndex
-            }
-        }
-        player1TextField.text = settings?.player1
-        player2TextField.text = settings?.player2
+        selectedRow = settings.theme.rawValue
+        player1TextField.text = settings.player1
+        player2TextField.text = settings.player2
     }
 
     // MARK: - Table view data source
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        Theme.allCases.count
+    }
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == selectedRow {
@@ -50,7 +62,7 @@ class SettingsTableViewController: UITableViewController {
         if let cell = tableView.cellForRow(at: indexPath) {
             selectedRow = indexPath.row
             cell.accessoryType = .checkmark
-            settings?.theme = Theme(rawValue: selectedRow) ?? .Default
+            settings.theme = Theme(rawValue: selectedRow) ?? .Default
         }
     }
     
@@ -60,6 +72,22 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ThemeID, for: indexPath)
+        
+        if let theme = Theme(rawValue: indexPath.row) {
+            var content = cell.defaultContentConfiguration()
+            content.text = theme.getTitle
+            content.image = UIImage(named: theme.getString)
+            content.imageProperties.maximumSize = CGSize(width: 240, height: 111)
+            cell.contentConfiguration = content
+        }
+        if selectedRow == indexPath.row {
+            cell.accessoryType = .checkmark
+        }
+        return cell
+    }
+    
     override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)
         
@@ -67,16 +95,16 @@ class SettingsTableViewController: UITableViewController {
         setName(sender: player2TextField, isPlayer1: false)
         
         if parent == nil {
-            delegate?.settingData(data: settings!)
+            delegate.settingData(data: settings)
         }
     }
     
     private func setName(sender: UITextField, isPlayer1: Bool) {
         if let name = sender.text, !name.isEmpty {
             if isPlayer1 {
-                settings?.player1 = name
+                settings.player1 = name
             } else {
-                settings?.player2 = name
+                settings.player2 = name
             }
         }
     }

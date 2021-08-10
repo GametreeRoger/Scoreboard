@@ -18,7 +18,7 @@ struct Settings {
     }
 }
 
-enum Theme: Int {
+enum Theme: Int, CaseIterable {
     case Default = 0
     case Dark
     case TableTennisTable
@@ -37,6 +37,21 @@ enum Theme: Int {
             return "SpringFestival"
         case .SoccerField:
             return "SoccerField"
+        }
+    }
+    
+    var getTitle: String {
+        switch self {
+        case .Default:
+            return "Default"
+        case .Dark:
+            return "Dark"
+        case .TableTennisTable:
+            return "Table Tennis Table"
+        case .SpringFestival:
+            return "Spring Festival"
+        case .SoccerField:
+            return "Soccer Field"
         }
     }
 }

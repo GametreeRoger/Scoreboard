@@ -12,7 +12,7 @@ class ScoreboardViewController: UIViewController {
     var score: Score!
     var scoreRecord: [Score] = []
     var goingForwards: Bool = false
-    var settings: Settings?
+    var settings: Settings!
     
     @IBOutlet weak var leftScoreButton: UIButton!
     @IBOutlet weak var rightScoreButton: UIButton!
@@ -147,12 +147,12 @@ class ScoreboardViewController: UIViewController {
         var serveColorName = ""
         var resetColorName = ""
         var backgroundColorName = ""
-        if let theme = settings?.theme {
-            textColorName = "\(theme.getString)_TextColor"
-            serveColorName = "\(theme.getString)_ServeColor"
-            resetColorName = "\(theme.getString)_ResetColor"
-            backgroundColorName = "\(theme.getString)_BackgroundColor"
-        }
+        let theme = settings.theme
+        textColorName = "\(theme.getString)_TextColor"
+        serveColorName = "\(theme.getString)_ServeColor"
+        resetColorName = "\(theme.getString)_ResetColor"
+        backgroundColorName = "\(theme.getString)_BackgroundColor"
+
         leftScoreButton.setTitleColor(UIColor(named: textColorName), for: .normal)
         rightScoreButton.setTitleColor(UIColor(named: textColorName), for: .normal)
         leftNameLabel.textColor = UIColor(named: textColorName)
@@ -194,11 +194,9 @@ class ScoreboardViewController: UIViewController {
         recordPush()
         updateView()
     }
+    
     @IBSegueAction func showSettings(_ coder: NSCoder) -> SettingsTableViewController? {
-        let controller = SettingsTableViewController(coder: coder)
-        controller?.delegate = self
-        controller?.settings = settings
-        return controller
+        return SettingsTableViewController(coder: coder, settings: settings, delegate: self)
     }
 }
 
